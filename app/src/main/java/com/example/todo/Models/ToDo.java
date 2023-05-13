@@ -9,7 +9,7 @@ import java.util.UUID;
 public class ToDo {
     private final String id;
     private String title;
-    private final Date timeCreate;
+    private Date expiryDate;
     private String description;
     private boolean isDone;
 
@@ -18,22 +18,32 @@ public class ToDo {
     @Override
     public String toString() {
         return "Todo(title: " + title + ", description: " + description
-                +", isDone: " + isDone + ")\n";
+                + ", isDone: " + isDone + ")\n";
     }
 
-    public ToDo(String title, String description){
+    public ToDo(String title, String description, Date expiryDate) {
         this.id = UUID.randomUUID().toString();
         this.title = title;
         this.description = description;
-        this.timeCreate = new Date();
+        this.expiryDate = expiryDate;
     }
-
+    public ToDo(String title, String description, Date expiryDate, boolean isDone) {
+        this.id = UUID.randomUUID().toString();
+        this.title = title;
+        this.description = description;
+        this.expiryDate = expiryDate;
+        this.isDone = isDone;
+    }
     public void setTitle(String title) {
         this.title = title;
     }
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void setExpiryDate(Date expiryDate) {
+        this.expiryDate = expiryDate;
     }
 
     public void setDone(boolean done) {
@@ -48,8 +58,8 @@ public class ToDo {
         return title;
     }
 
-    public Date getTimeCreate() {
-        return timeCreate;
+    public Date getExpiryDate() {
+        return expiryDate;
     }
 
     public String getDescription() {

@@ -13,11 +13,13 @@ import com.example.todo.Models.ToDo;
 import com.example.todo.R;
 import org.jetbrains.annotations.NotNull;
 
+import java.text.SimpleDateFormat;
+
 public class TodoCard extends CardView {
-    private TextView title;
-    private TextView timeCreated;
-    private TextView description;
-    private CheckBox checkBox;
+    private final TextView title;
+    private final TextView expiryDate;
+    private final TextView description;
+    private final CheckBox checkBox;
 
     public TodoCard(@NonNull @NotNull Context context, @Nullable @org.jetbrains.annotations.Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -28,7 +30,7 @@ public class TodoCard extends CardView {
         inflater.inflate(R.layout.todo_card, this, true);
 
         title = this.findViewById(R.id.tv_title);
-        timeCreated = this.findViewById(R.id.tv_time);
+        expiryDate = this.findViewById(R.id.tv_time);
         description = this.findViewById(R.id.tv_description);
         checkBox = this.findViewById(R.id.cb_done);
 
@@ -41,7 +43,8 @@ public class TodoCard extends CardView {
             this.title.setText(title);
         }
         if (timeCreate != null && !timeCreate.isEmpty()) {
-            this.timeCreated.setText(timeCreate);
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            this.expiryDate.setText(dateFormat.format(timeCreate));
         }
         if (description != null && !description.isEmpty()) {
             this.description.setText(description);
@@ -51,7 +54,7 @@ public class TodoCard extends CardView {
 
     public void setTodo(ToDo toDo){
         this.title.setText(toDo.getTitle());
-        this.timeCreated.setText(toDo.getTimeCreate().toString());
+        this.expiryDate.setText(toDo.getExpiryDate().toString());
         this.description.setText(toDo.getDescription());
         checkBox.setChecked(toDo.isDone());
     }

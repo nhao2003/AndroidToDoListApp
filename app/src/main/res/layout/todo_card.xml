@@ -2,15 +2,18 @@
 <androidx.cardview.widget.CardView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:cardCornerRadius="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="5dp"
 
 >
     <androidx.constraintlayout.widget.ConstraintLayout
             app:cardCornerRadius="50dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/purple_200"
+            android:background="#F9F9F0"
             android:padding="10dp"
     >
         <TextView
@@ -43,7 +46,6 @@
         />
         <CheckBox
                 android:id="@+id/cb_done"
-                android:text="Done"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

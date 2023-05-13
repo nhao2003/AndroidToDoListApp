@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+>
+
+    <item android:title="Sửa Todo" android:id="@+id/edit_todo"/>
+    <item android:title="Xoá Todo" android:id="@+id/delete_todo"/>
+    <item android:title="Đánh dấu đã hoàn thành" android:id="@+id/mark_as_done_todo"/>
+</menu>
